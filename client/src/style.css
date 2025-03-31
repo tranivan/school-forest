@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #3E7B27;
+    --color-secondary: #EFE3C2;
+    --color-grass: #85A947;
+    --color-forest: #123524;
+    --color-background1: #EBE5D7;
+  }
+
+  @layer components {
+    .homecard {
+      @apply bg-forest rounded-md border-forest;
+    }
+  }
+
+  @layer utilities {
+    .custom-radial-gradient {
+      background-image: radial-gradient(ellipse 100% 100% at center, #EBE5D7 0%, #3E7B27 60%);
+    }
+  }

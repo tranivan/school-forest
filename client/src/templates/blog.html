@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Školní Les</title>
+    <link href="/src/style.css" rel="stylesheet">
+</head>
+    <body class="text-background1 min-h-screen bg-forest">
+        <div id="navbar"> </div>
+        <script>
+            fetch("../../navbar.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("navbar").innerHTML = data);
+        </script>
+        <h1 class="bg-red">hii</h1>
+    </body>
+</html>

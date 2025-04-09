@@ -8,14 +8,20 @@
     --color-background1: #EBE5D7;
   }
 
-  @layer components {
-    .homecard {
-      @apply bg-forest rounded-md border-forest;
-    }
+@layer components {
+  .homecard {
+    @apply bg-forest rounded-md border-forest;
   }
+  .radio {
+    @apply bg-forest text-background1 text-xs font-black rounded-lg px-3 py-0 focus:bg-primary;
+  }
+  .blogsquare {
+    @apply h-64 max-w-xs w-fit flex flex-col p-2
+  }
+}
 
-  @layer utilities {
-    .custom-radial-gradient {
-      background-image: radial-gradient(ellipse 100% 100% at center, #EBE5D7 0%, #3E7B27 60%);
-    }
+@layer utilities {
+  .custom-radial-gradient {
+    background-image: radial-gradient(ellipse 100% 100% at center, #EBE5D7 0%, #3E7B27 60%);
   }
+}

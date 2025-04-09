@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Školní Les</title>
+    <link href="/src/style.css" rel="stylesheet">
+</head>
+
+<body class="text-forest min-h-screen bg-background1">
+    <header id="header" class="fixed top-0 w-full"></header>
+    <script>
+        fetch("../../navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                document.getElementById('navbar').classList.replace("text-background1", "text-forest");
+
+                // Now attach scroll listener after navbar is loaded
+                document.addEventListener('scroll', () => {
+                    const navbar = document.getElementById('navbar');
+                    if (window.scrollY > 0) {
+                        navbar.classList.replace("bg-transparent", "bg-black");
+                        navbar.classList.replace("text-forest", "text-background1");
+
+                    } else {
+                        navbar.classList.replace("bg-black", "bg-transparent");
+                        navbar.classList.replace("text-background1", "text-forest");
+
+                    }
+                });
+            });
+    </script>
+    <div class="container mx-auto">
+ 
+    <h1 class="text-8xl font-black text-center mt-24">FOTOGALERIE</h1>
+    <div class="grid grid-cols-7 gap-4 px-12 mt-16">
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+        <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
+
+    </div>
+</div>
+</body>
+
+</html>

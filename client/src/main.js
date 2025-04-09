@@ -1,24 +1,15 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+  fetch("navbar.html")
+              .then(response => response.text())
+              .then(data => {
+                document.getElementById("header").innerHTML = data;
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="bg-[#FF0000]">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
+                // Now attach scroll listener after navbar is loaded
+                document.addEventListener('scroll', () => {
+                  const navbar = document.getElementById('navbar');
+                  if (window.scrollY > 0) {
+                    navbar.classList.replace("bg-transparent", "bg-black");
+                  } else {
+                    navbar.classList.replace("bg-black", "bg-transparent");
+                  }
+                });
+              });

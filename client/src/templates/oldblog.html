@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Školní Les</title>
+    <link href="/src/style.css" rel="stylesheet">
+</head>
+
+<body class="text-forest min-h-screen bg-background1">
+    <div class="h-screen">
+        <header id="header" class="fixed top-0 w-full"></header>
+        <script>
+            fetch("../../navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header").innerHTML = data;
+                    document.getElementById('navbar').classList.replace("text-background1", "text-forest");
+
+                    // Now attach scroll listener after navbar is loaded
+                    document.addEventListener('scroll', () => {
+                        const navbar = document.getElementById('navbar');
+                        if (window.scrollY > 0) {
+                            navbar.classList.replace("bg-transparent", "bg-black");
+                            navbar.classList.replace("text-forest", "text-background1");
+
+                        } else {
+                            navbar.classList.replace("bg-black", "bg-transparent");
+                            navbar.classList.replace("text-background1", "text-forest");
+
+                        }
+                    });
+                });
+        </script>
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-[auto_1fr] mt-20">
+                <h1 class="font-black text-7xl">BLOG</h1>
+                <div class="place-self-center">
+                    <h3 class="font-extrabold text-xs mb-2 text-primary">FILTROVAT PODLE:</h3>
+                    <div class="flex gap-4">
+                        <button class="radio">VŠECHNO</button>
+                        <button class="radio">REPOROTÁŽ</button>
+                        <button class="radio">LÍČENÍ</button>
+                        <button class="radio">NAUČNÉ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-[1fr_auto] gap-6 place-items-center mt-8">
+                <div
+                    class="homecard col-start-1 row-start-1 row-span-2 md:col-span-2 lg:col-span-1 h-full w-full flex flex-col p-2">
+                    <img src="/hory.jpg" class="object-cover object-center h-64 rounded-md mb-4" />
+                    <h3 class="text-background1 text-2xl font-semibold">Jdeme na hory!</h3>
+                    <h4 class="font-medium text-sm text-grass mb-4">Jó jakoby jedem na ty hory no, tak se tady můžete
+                        dozvědět více</h4>
+                    <div class="flex justify-between w-4/5">
+                        <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                        <div class="flex gap-2">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homecard h-44 lg:max-w-sm w-fit flex p-2">
+                    <img src="/sazeni.jpg" class="object-cover aspect-square h-full rounded-sm" />
+                    <div class="flex flex-col">
+                        <h3 class="text-background1 text-xl font-semibold">Bude oplocenka</h3>
+                        <h4 class="font-medium text-sm text-grass mb-4">yessirrrrr pracujeme na oplocence a bude to fire
+                            lidi yeah bro</h4>
+                        <div class="flex justify-between w-4/5">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homecard blogsquare md:h-44 lg:max-w-sm w-fit flex p-2">
+                    <img src="/sazeni.jpg" class="object-cover aspect-square h-full rounded-sm" />
+                    <div class="flex flex-col">
+                        <h3 class="text-background1 text-xl font-semibold">Bude oplocenka</h3>
+                        <h4 class="font-medium text-sm text-grass mb-4">yessirrrrr pracujeme na oplocence a bude to fire
+                            lidi yeah bro
+                        </h4>
+                        <div class="flex justify-between w-4/5">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-flow-col gap-6 place-items-center mt-6">
+
+                <div class="homecard h-64 max-w-xs w-fit flex flex-col p-2">
+                    <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
+                    <div class="min-w-3xs">
+                        <h3 class="text-background1 text-xl font-semibold">Jdeme na hory!</h3>
+                        <h4 class="font-medium text-sm text-grass mb-4">Jó jakoby jedem na ty hory no, tak se tady
+                            můžete dozvědět více
+                        </h4>
+                        <div class="flex justify-between w-4/5">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homecard h-64 max-w-xs w-fit flex flex-col p-2">
+                    <img src="/sazeni.jpg" class="object-cover object-center w-full h-4/7 rounded-md mb-4" />
+                    <h3 class="text-background1 text-xl font-semibold">Bude oplocenka</h3>
+                    <h4 class="font-medium text-sm text-grass mb-4">yessirrrrr pracujeme na oplocence a bude to fire
+                        lidi yeah bro</h4>
+                    <div class="flex justify-between w-4/5">
+                        <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                        <div class="flex gap-2">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homecard h-64 max-w-xs w-fit flex flex-col p-2">
+                    <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
+                    <div class="min-w-3xs">
+                        <h3 class="text-background1 text-xl font-semibold">Jdeme na hory!</h3>
+                        <h4 class="font-medium text-sm text-grass mb-4">Jó jakoby jedem na ty hory no, tak se tady
+                            můžete dozvědět více</h4>
+                        <div class="flex justify-between w-4/5">
+                            <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
+                                <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script></script>
+</body>
+
+</html>

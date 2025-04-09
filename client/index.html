@@ -2,19 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Školní Les</title>
-    <link href="src/style.css" rel="stylesheet">
+    <link href="./src/style.css" rel="stylesheet">
   </head>
   <body class="text-background1 min-h-screen bg-forest">
-    <div class="items-center bg-cover bg-center bg-[url(/public/les.jpg)] h-screen grid grid-rows-[auto_1fr_auto]">
-      <div id="navbar" > </div>
-      <script>
-        fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("navbar").innerHTML = data);
-        </script>
+    <div class="items-center bg-cover bg-center bg-[url(/les.jpg)] h-screen grid grid-rows-[auto_1fr_auto]">
+      <header id="header" class="fixed top-0 w-full"></header>
+        <div class="h-12"></div>
           <div class="flex flex-col mx-auto max-w-md container">
             <h1 class="text-5xl font-black place-self-center p-8">Školní les PORGu Libeň</h1>
             <button class="bg-background1 text-forest hover:bg-background1 focus:bg-grass transition-all place-self-end h-fit w-fit rounded-sm py-1 px-4 text-md font-extrabold">
@@ -22,8 +17,8 @@
             </button>      
           </div>
           <span class="flex justify-end items-center bg-background1">
-              <h2 class="font-black text-forest text-xl px-8 py-2 mr-8 md:mr-32">
-                NOVINKY
+            <h2 class="font-black text-forest text-xl px-8 py-2 mr-8 md:mr-32">
+              NOVINKY
               </h2>
           </span>
       </div>
@@ -41,7 +36,7 @@
               </div>
             </div>
           </div>
-           
+          
           <div class="homecard m-8 col-start-2 h-96 w-full max-w-md flex flex-col p-4">
             <img src="./sazeni.jpg" class="object-cover object-center w-full h-4/7 rounded-md mb-4" />
             <h3 class="text-background1 text-3xl font-semibold">Bude oplocenka</h3>
@@ -67,8 +62,9 @@
         </div>
       </div>
       <footer class="bg-forest h-64">
-
+        
       </footer>
-      </body>
-      </html>
-      
+      <script src="./src/main.js"></script>
+    </body>
+    </html>
+    

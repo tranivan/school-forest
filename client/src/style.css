@@ -10,15 +10,54 @@
 
 @layer components {
   .homecard {
-    @apply bg-forest rounded-md border-forest;
+    @apply bg-secondary rounded-md border-2 border-primary shadow-md;
   }
   .radio {
     @apply bg-forest text-background1 text-xs font-black rounded-lg px-3 py-0 focus:bg-primary;
   }
+  .radiolabel {
+    @apply bg-background1 text-forest text-xs font-extrabold border border-forest rounded-lg px-1;
+  }
+  .checkboxlabel {
+    @apply bg-background1 text-forest text-xs font-extrabold border border-forest rounded-sm px-1;
+  }
   .blogsquare {
     @apply h-64 max-w-xs w-fit flex flex-col p-2
   }
+  .cardimage {
+    @apply object-cover object-center h-4/7 w-full rounded-md mb-4;
+  }
+  .squareimage {
+    @apply object-cover object-center h-4/7 w-full rounded-md mb-4;
+  }
+  
+  @screen lg {
+    .squareimage {
+      @apply object-cover object-center h-auto w-full aspect-square rounded-sm mb-0;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .only-lg\:row-layout {
+      @apply max-w-md;
+    }
+    .only-lg\:flex-row {
+      @apply flex-row;
+    }
+
+    .only-lg\:h-full {
+      @apply h-full;
+
+    .only-lg\:image-style {
+      @apply aspect-square h-auto mb-0;
+    }
+  }
+  
+
+    
 }
+}
+
 
 @layer utilities {
   .custom-radial-gradient {

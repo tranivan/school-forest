@@ -2,34 +2,11 @@
 {% block title %}O Nás - {% endblock %}
 {% block content %}
 
-<body class="text-forest min-h-screen bg-background1">
-    <header id="header" class="fixed top-0 w-full"></header>
-    <script>
-        fetch("../../navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                document.getElementById('navbar').classList.replace("text-background1", "text-forest");
-
-                // Now attach scroll listener after navbar is loaded
-                document.addEventListener('scroll', () => {
-                    const navbar = document.getElementById('navbar');
-                    if (window.scrollY > 0) {
-                        navbar.classList.replace("bg-transparent", "bg-black");
-                        navbar.classList.replace("text-forest", "text-background1");
-
-                    } else {
-                        navbar.classList.replace("bg-black", "bg-transparent");
-                        navbar.classList.replace("text-background1", "text-forest");
-
-                    }
-                });
-            });
-    </script>
-    <h1 class="bg-red text-center text-5xl font-black mt-24 mb-12">O NAŠEM PROJEKTU</h1>
+<body class="text-forest min-h-screen bg-background-primary">
+    <h1 class="bg-red text-center text-5xl md:text-6xl font-black mt-24 mb-12">O NAŠEM PROJEKTU</h1>
     <div class="grid grid-cols-2">
         <div class="p-2">
-            <img src="/public/sazeni.jpg" class="object-center w-full rounded-md" />
+            <img src="/static/sazeni.jpg" class="object-center w-full rounded-md" />
         </div>
         <p class="font-md px-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque arcu. Donec
             iaculis gravida nulla. Aenean

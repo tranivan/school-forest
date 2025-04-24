@@ -3,34 +3,11 @@
 {% block content %}
 
 
-<body class="text-forest min-h-screen bg-background1 flex flex-col">
-    {# <header id="header" class="sticky top-0 w-full"></header>
-    <script>
-        fetch("../../navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                document.getElementById('navbar').classList.replace("text-background1", "text-forest");
-
-                // Now attach scroll listener after navbar is loaded
-                document.addEventListener('scroll', () => {
-                    const navbar = document.getElementById('navbar');
-                    if (window.scrollY > 0) {
-                        navbar.classList.replace("bg-transparent", "bg-black");
-                        navbar.classList.replace("text-forest", "text-background1");
-
-                    } else {
-                        navbar.classList.replace("bg-black", "bg-transparent");
-                        navbar.classList.replace("text-background1", "text-forest");
-
-                    }
-                });
-            });
-    </script> #}
+<body class="text-forest min-h-screen bg-background-primary flex flex-col mt-12">
     <main class="container mx-auto px-8">
         <div class="grid grid-cols-[auto_1fr] mt-2">
             <h1 class="font-black text-7xl">BLOG</h1>
-            <div class="place-self-center">
+            <div class="justify-self-center content-end">
                 <h3 class="font-extrabold text-xs mb-2 text-primary">FILTROVAT PODLE:</h3>
                 <div class="flex gap-4">
                     <button class="radio">VŠECHNO</button>
@@ -43,7 +20,8 @@
         <div
             class="grid sm:grid-cols-2 lg:grid-cols-3 auto-rows-[85px] xl:auto-rows-[120px] gap-6 place-items-center mt-2">
             <div class="sm:col-span-2 sm:row-span-4 row-span-3 size-full homecard flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center aspect-video w-auto h-full rounded-md mb-4" />
+                <img src="/static/hory.jpg"
+                    class="object-cover object-center aspect-video w-auto h-full rounded-md mb-4" />
                 <h3 class="text-forest text-xl font-semibold mb-4">Jdeme na hory!</h3>
                 <div class="flex justify-between w-4/5">
                     <p class="radiolabel">ZPRÁVA</p>
@@ -55,7 +33,7 @@
             </div>
 
             <div class="homecard row-span-3 lg:row-span-2 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md" />
+                <img src="/static/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md" />
                 <div class="flex flex-col justify-between h-3/7 p-2">
                     <h3 class="text-forest text-xl font-semibold">Bude oplocenka</h3>
                     <div class="flex flex-wrap justify-between gap-2 w-4/5">
@@ -69,7 +47,7 @@
                 </div>
             </div>
             <div class="homecard row-span-3 lg:row-span-2 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md" />
+                <img src="/static/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md" />
                 <div class="h-3/7 flex flex-col justify-between p-2">
                     <h3 class="text-forest text-xl font-semibold">Bude oplocenka</h3>
                     <div class="flex flex-wrap justify-between gap-2 w-4/5">
@@ -83,21 +61,22 @@
                 </div>
 
             </div>
+            {% for _ in range(10) %}
             <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-1/2 w-full rounded-md mb-4" />
+                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full rounded-md mb-4" />
+                <h3 class="text-background-primary text-2xl xl:text-3xl font-semibold mb-4">Bude oplocenka</h3>
+                <div class="flex justify-between">
+                    <div class="flex justify-between items-end h-8 pb-1 w-4/5">
+                        <p class="radiolabel">ZPRÁVA</p>
+                        <div class="flex gap-2">
+                            <p class="checkboxlabel ">SEXTA</p>
+                            <p class="checkboxlabel ">SEPIMA</p>
+                        </div>
+                    </div>
+                    <img src="/static/arrowupright.svg" class="mx-auto h-8" />
+                </div>
             </div>
-            <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
-            </div>
-            <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
-            </div>
-            <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
-            </div>
-            <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/hory.jpg" class="object-cover object-center h-4/7 w-full rounded-md mb-4" />
-            </div>
+            {% endfor %}
         </div>
     </main>
 

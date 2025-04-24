@@ -2,50 +2,60 @@
 {% block content %}
 
 
-<body class="text-background1 min-h-screen bg-forest">
-  <div class="items-center bg-cover bg-center bg-[url(/les.jpg)] h-screen grid grid-rows-[auto_1fr_auto]">
-    <header id="header" class="fixed top-0 w-full"></header>
+<body class="text-background-primary min-h-screen bg-forest">
+  <div
+    class="items-center bg-cover bg-center bg-[url(/static/homepicture.webp)] h-screen grid grid-rows-[auto_1fr_auto]">
     <div class="h-12"></div>
-    <div class="flex flex-col mx-auto max-w-md container">
-      <h1 class="text-5xl font-black place-self-center p-8">Školní les PORGu Libeň</h1>
-      <button
-        class="bg-background1 text-forest hover:bg-background1 focus:bg-grass transition-all place-self-end h-fit w-fit rounded-sm py-1 px-4 text-md font-extrabold">
+    <div class="flex flex-col max-w-md mx-8 sm:mx-24">
+      <h1 class="text-5xl font-black p-8">Školní les PORGu Libeň</h1>
+      <button onclick="window.location='/o-nas'"
+        class="bg-background-primary cursor-pointer text-forest hover:bg-background-hover focus:bg-background-hover focus:outline-offset-2 focus:outline-2 focus:outline-background-hover active:bg-background-primary transition-all place-self-end h-fit w-fit rounded-sm py-1 px-4 text-md font-extrabold">
         více o projektu
       </button>
     </div>
-    <span class="flex justify-end items-center bg-background1">
-      <h2 class="font-black text-forest text-xl px-8 py-2 mr-8 md:mr-32">
+    <button id="scrollButton"
+      class="bg-background-primary justify-self-end w-fit mx-12 justify-center items-center rounded-t-sm cursor-pointer scroll-mt-16">
+      <h3 class="font-black text-forest text-xl px-6 py-1">
         NOVINKY
-      </h2>
-    </span>
+      </h3>
+    </button>
+    <script>
+      document.getElementById("scrollButton").addEventListener("click", function () {
+        document.getElementById("scrollButton").scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    </script>
   </div>
-  <div class="bg-background1 pt-12 pb-32 flex flex-col">
+  <div class="bg-background-primary pt-12 pb-32 flex flex-col">
     <div class="flex justify-center flex-wrap md:flex-nowrap px-8 mb-24">
       <div class="homecard m-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
-        <img src="./hory.jpg" class="object-cover object-center w-full h-4/7 rounded-md mb-4" />
-        <h3 class="text-forest text-xl font-semibold">Jdeme na hory!</h3>
-        <h4 class="font-medium text-sm text-primary mb-4">Jó jakoby jedem na ty hory no, tak se tady můžete dozvědět
-          více</h4>
-        <div class="flex justify-between w-4/5">
-          <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
-          <div class="flex gap-2">
-            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
-            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+        <img src="/static/hory.jpg" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
+        <h3 class="text-background-primary text-3xl font-semibold mb-4">Jdeme na hory!</h3>
+        <div class="flex justify-between">
+          <div class="flex justify-between items-end h-8 pb-1 w-4/5">
+            <p class="radiolabel text-xs">ZPRÁVA</p>
+            <div class="flex gap-2">
+              <p class="checkboxlabel text-xs">SEXTA</p>
+              <p class="checkboxlabel text-xs">SEPIMA</p>
+            </div>
           </div>
+          <img src="/static/arrowupright.svg" class="mx-auto h-8" />
         </div>
       </div>
 
       <div class="homecard m-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
-        <img src="./sazeni.jpg" class="object-cover object-center w-full h-4/7 rounded-md mb-4" />
-        <h3 class="text-forest text-xl font-semibold">Bude oplocenka</h3>
-        <h4 class="font-medium text-sm text-primary mb-4">yessirrrrr pracujeme na oplocence a bude to fire lidi yeah bro
-        </h4>
-        <div class="flex justify-between w-4/5">
-          <p class="text-xs font-black bg-secondary text-forest rounded-lg px-2 w-fit">ZPRÁVA</p>
-          <div class="flex gap-2">
-            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEXTA</p>
-            <p class="text-xs font-black bg-secondary text-forest rounded-sm px-2 w-fit">SEPIMA</p>
+        <img src="/static/sazeni.jpg" class="object-cover object-center w-full h-5/7 rounded-md mb-4" />
+        <h3 class="text-background-primary text-3xl font-semibold mb-4">Bude oplocenka</h3>
+        <div class="flex justify-between">
+          <div class="flex justify-between items-end h-8 pb-1 w-4/5">
+            <p class="radiolabel text-xs">ZPRÁVA</p>
+            <div class="flex gap-2">
+              <p class="checkboxlabel text-xs">SEXTA</p>
+              <p class="checkboxlabel text-xs">SEPIMA</p>
+            </div>
           </div>
+          <img src="/static/arrowupright.svg" class="mx-auto h-8" />
         </div>
       </div>
     </div>
@@ -63,7 +73,12 @@
   <footer class="bg-forest h-64">
 
   </footer>
-  <script src="./src/main.js"></script>
 </body>
+<script defer>
+  const homenavbar = document.getElementById('navbar');
+  homenavbar.classList.replace("text-forest", "text-[#EBE5D7]");
+
+</script>
+
 
 {%endblock%}

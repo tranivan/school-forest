@@ -6,12 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}Školní les</title>
     <link href="/styles/style.css" rel="stylesheet">
-    <script src="/js/main.js"></script>
+    <script defer src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #3E7B27;
+            --color-secondary: #EFE3C2;
+            --color-grass: #85A947;
+            --color-forest: #123524;
+            --color-background-primary: #EBE5D7;
+            --color-background-hover: #dbd1b8;
+
+        }
+
+        @layer components {
+        .homecard {
+            @apply bg-forest rounded-md border-2 border-forest shadow-md cursor-pointer p-4;
+        }
+        .radio {
+            @apply bg-forest text-background-primary text-xs font-black rounded-lg px-3 py-0 focus:bg-primary;
+        }
+        .radiolabel {
+            @apply bg-background-primary text-forest text-[0.6rem] font-extrabold border border-forest rounded-lg h-fit px-1;
+        }
+        .checkboxlabel {
+            @apply bg-background-primary text-forest text-[0.6rem] font-extrabold border border-forest rounded-sm h-fit px-1;
+        }
+        
+        @layer utilities {
+        .custom-radial-gradient {
+            background-image: radial-gradient(ellipse 100% 100% at center, #EBE5D7 0%, #3E7B27 60%);
+        }
+        }
+        }
+    </style>
 </head>
 
 <body>
     {% include "navbar.jinja2" %}
-    <div>{% block content %}{% endblock %}</div>
+    <main>{% block content %}{% endblock %}</main>
 </body>
 
 </html>

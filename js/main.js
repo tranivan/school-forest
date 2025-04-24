@@ -1,8 +1,12 @@
+const navbar = document.getElementById('navbar');
+
+
 document.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 0) {
-    navbar.classList.replace("bg-transparent", "bg-black");
-  } else {
-    navbar.classList.replace("bg-black", "bg-transparent");
-  }
+    if (window.scrollY > 0) {
+        navbar.classList.replace("bg-transparent", "bg-black");
+            navbar.classList.replace("text-forest", "text-background-primary");
+        } else {
+            navbar.classList.replace("bg-black", "bg-transparent");
+            navbar.classList.replace("text-background-primary", "text-forest");
+        }
 });

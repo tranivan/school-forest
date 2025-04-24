@@ -2,98 +2,19 @@
 {% block title %}Galerie - {% endblock %}
 {% block content %}
 
-<body class="text-forest min-h-screen bg-background1">
-    <header id="header" class="fixed top-0 w-full"></header>
-    <script>
-        fetch("../../navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                document.getElementById('navbar').classList.replace("text-background1", "text-forest");
-
-                // Now attach scroll listener after navbar is loaded
-                document.addEventListener('scroll', () => {
-                    const navbar = document.getElementById('navbar');
-                    if (window.scrollY > 0) {
-                        navbar.classList.replace("bg-transparent", "bg-black");
-                        navbar.classList.replace("text-forest", "text-background1");
-
-                    } else {
-                        navbar.classList.replace("bg-black", "bg-transparent");
-                        navbar.classList.replace("text-background1", "text-forest");
-
-                    }
-                });
-            });
-    </script>
+<body class="text-forest min-h-screen bg-background-primary">
     <div class="container mx-auto">
-
-        <h1 class="text-8xl font-black text-center mt-24">FOTOGALERIE</h1>
-        <div class="grid grid-cols-7 gap-4 px-12 mt-16">
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-            <img src="/hory.jpg" class="object-center object-cover h-full aspect-square" />
-
+        <h1 class="text-6xl md:text-7xl font-black text-center mt-24">FOTOGALERIE</h1>
+        <div class="grid grid-cols-7 gap-2 md:gap-4 px-12 mt-16">
+            {% for _ in range(60) %}
+            <img src="/static/hory.jpg" class="object-center object-cover h-full aspect-square rounded-xs" />
+            {% endfor %}
         </div>
     </div>
 </body>
+<script>
+    document.getElementById('navbar').classList.replace("text-background-primary", "text-forest");
+</script>
 
 </html>
 {%endblock%}

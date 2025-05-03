@@ -10,3 +10,4 @@ document.addEventListener('scroll', () => {
             navbar.classList.replace("text-background-primary", "text-forest");
         }
 });
+

@@ -9,7 +9,7 @@
     <div class="flex flex-col max-w-md mx-8 sm:mx-24">
       <h1 class="text-5xl font-black p-8">Školní les PORGu Libeň</h1>
       <button onclick="window.location='/o-nas'"
-        class="bg-background-primary cursor-pointer text-forest hover:bg-background-hover focus:bg-background-hover focus:outline-offset-2 focus:outline-2 focus:outline-background-hover active:bg-background-primary transition-all place-self-end h-fit w-fit rounded-sm py-1 px-4 text-md font-extrabold">
+        class="cursor-pointer underline decoration-double focus:outline-offset-2 focus:outline-2 focus:outline-background-hover transition-all place-self-end h-fit w-fit text-2xl font-extrabold">
         více o projektu
       </button>
     </div>
@@ -27,11 +27,12 @@
       });
     </script>
   </div>
-  <div class="bg-background-primary pt-12 pb-32 flex flex-col">
-    <div class="flex justify-center flex-wrap md:flex-nowrap px-8 mb-24">
-      <div class="homecard m-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
+  <div class="bg-background-primary pt-16 sm:pt-24 pb-32 flex flex-col">
+    <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-24">
+      <button onclick="window.location='/posts'"
+        class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="/static/hory.jpg" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
-        <h3 class="text-background-primary text-3xl font-semibold mb-4">Jdeme na hory!</h3>
+        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">Jdeme na hory!</h3>
         <div class="flex justify-between">
           <div class="flex justify-between items-end h-8 pb-1 w-4/5">
             <p class="radiolabel text-xs">ZPRÁVA</p>
@@ -42,9 +43,9 @@
           </div>
           <img src="/static/arrowupright.svg" class="mx-auto h-8" />
         </div>
-      </div>
+      </button>
 
-      <div class="homecard m-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
+      <div class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="/static/sazeni.jpg" class="object-cover object-center w-full h-5/7 rounded-md mb-4" />
         <h3 class="text-background-primary text-3xl font-semibold mb-4">Bude oplocenka</h3>
         <div class="flex justify-between">
@@ -62,11 +63,42 @@
 
 
     <div class="flex justify-center">
-      <div class="max-w-5xl flex flex-col w-full px-16">
+      <div class="max-w-5xl flex flex-col w-full px-4 sm:px-16">
         <h2 class="text-forest font-black text-2xl">
           NEJNOVĚJŠÍ FOTKY
         </h2>
-        <div class="custom-radial-gradient h-48 mt-8 rounded-md border-2 border-forest"></div>
+        <div class="custom-radial-gradient h-48 mt-8 rounded-md border-2 border-forest p-4 relative">
+          <div id="photoContainer"
+            class="[mask-image:linear-gradient(to_left,transparent_0,black_100px)] flex space-x-4 h-full overflow-x-auto snap-x sm:px-8">
+            {% for _ in range(12) %}
+            <img src="/static/hory.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+            {% endfor %}
+            <button onclick="window.location='/galerie'"
+              class="font-extrabold text-lg text-left mr-8 ml-2 cursor-pointer">
+              Všechny fotky
+            </button>
+          </div>
+          <button onclick="scrollRight()"
+            class="cursor-pointer right-2 top-1/2 -translate-y-1/2 absolute hidden sm:block">
+            <img src="/static/arrow-right.svg" class="h-6" />
+          </button>
+          <button onclick="scrollPhotoLeft()"
+            class="cursor-pointer left-3 top-1/2 -translate-y-1/2 absolute hidden sm:block">
+            <img src="/static/arrow-left.svg" class="h-6" />
+          </button>
+        </div>
+        <script>
+          const container = document.getElementById('photoContainer');
+          const scrollAmount = 300; // Adjust depending on image size
+
+          function scrollPhotoLeft() {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          }
+
+          function scrollRight() {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        </script>
       </div>
     </div>
   </div>

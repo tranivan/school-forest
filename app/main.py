@@ -27,3 +27,7 @@ async def read_root(request: Request):
 @app.get("/o-nas", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="about.jinja2")
+
+@app.get("/posts", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse(request=request, name="post.jinja2")

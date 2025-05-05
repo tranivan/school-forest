@@ -8,7 +8,8 @@
         <h1 class="text-6xl md:text-7xl font-black text-center mt-24 block sm:hidden">FOTO<br>GALERIE</h1>
         <div class="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 px-1 md:px-12 mt-8">
             {% for _ in range(60) %}
-            <img src="/static/hory.jpg" class="object-center object-cover h-full aspect-square rounded-xs" />
+            <img src="/static/hory.jpg" loading="lazy"
+                class="object-center object-cover h-full aspect-square rounded-xs" />
             {% endfor %}
         </div>
     </div>

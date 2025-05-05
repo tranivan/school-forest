@@ -10,10 +10,10 @@ class BlogPost(Base):
     __tablename__ = 'blog_posts'
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
-    content = Column(Text)
+    content = Column(Text, nullable=False)
     author = Column(String)
-    created_at = Column(Float)
-    genres = Column(String)
+    created_at = Column(String)
+    genres = Column(String, nullable=False)
     
     classes = relationship("AttendingClasses", back_populates="post")   
 

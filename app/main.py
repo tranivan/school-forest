@@ -23,8 +23,21 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
-    return templates.TemplateResponse(request=request, name="index.jinja2")
+async def read_root(request: Request, db: Session = Depends(get_db)):
+    latest_posts = db.query(BlogPost.title, BlogPost.genres).order_by(BlogPost.id.desc()).limit(2).all()
+
+    latest_post = latest_posts[0] if len(latest_posts) > 0 else "No posts available"
+    second_latest_post = latest_posts[1] if len(latest_posts) > 1 else "No second post available"
+
+    return templates.TemplateResponse("index.jinja2", 
+        {
+            "request": request, 
+            "latest_post_title": latest_post[0],
+            "latest_post_genre": latest_post[1],
+            "second_latest_post_title": second_latest_post[0],
+            "second_latest_post_genre": second_latest_post[1],
+        }
+    )
 
 @app.get("/blog", response_class=HTMLResponse)
 async def read_root(request: Request):
@@ -52,8 +65,19 @@ def read_posts(db: Session = Depends(get_db)):
 
 # Route to create a new post
 @app.post("/posts")
-def create_post(title: str, db: Session = Depends(get_db)):
-    new_post = BlogPost(title=title)
+def create_post(
+    title: str,
+    content: str,
+    author: str,
+    genres: str,
+    db: Session = Depends(get_db),
+):
+    new_post = BlogPost(
+        title=title,
+        content=content,
+        author=author,
+        genres=genres,
+    )   
     db.add(new_post)
     db.commit()
     db.refresh(new_post)

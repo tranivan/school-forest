@@ -32,10 +32,10 @@
       <button onclick="window.location='/post'"
         class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="/static/hory.jpg" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
-        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">Jdeme na hory!</h3>
+        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">{{ latest_post_title }}</h3>
         <div class="flex justify-between">
           <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-            <p class="radiolabel text-xs">ZPRÁVA</p>
+            <p class="radiolabel text-xs">{{ latest_post_genre }}</p>
             <div class="flex gap-2">
               <p class="checkboxlabel text-xs">SEXTA</p>
               <p class="checkboxlabel text-xs">SEPIMA</p>
@@ -47,10 +47,10 @@
 
       <div class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="/static/sazeni.jpg" class="object-cover object-center w-full h-5/7 rounded-md mb-4" />
-        <h3 class="text-background-primary text-3xl font-semibold mb-4">Bude oplocenka</h3>
+        <h3 class="text-background-primary text-3xl font-semibold mb-4">{{ second_latest_post_title}}</h3>
         <div class="flex justify-between">
           <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-            <p class="radiolabel text-xs">ZPRÁVA</p>
+            <p class="radiolabel text-xs">{{ second_latest_post_genre }}</p>
             <div class="flex gap-2">
               <p class="checkboxlabel text-xs">SEXTA</p>
               <p class="checkboxlabel text-xs">SEPIMA</p>

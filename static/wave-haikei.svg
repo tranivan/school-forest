@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="visual"
+   viewBox="0 0 1920 191"
+   width="1920"
+   height="191"
+   version="1.1"
+   sodipodi:docname="wave-haikei.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="1920"
+       height="191"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <path
+     d="M 0,0 53.3,20.5 C 106.7,41 213.3,82 320,89.5 426.7,97 533.3,71 640,65.7 c 106.7,-5.4 213.3,10 320,19.3 106.7,9.3 213.3,12.7 320,9.2 106.7,-3.5 213.3,-13.9 320,-26.2 106.7,-12.3 213.3,-26.7 266.7,-33.8 L 1920,27 v 164 h -53.3 c -53.4,0 -160,0 -266.7,0 -106.7,0 -213.3,0 -320,0 -106.7,0 -213.3,0 -320,0 -106.7,0 -213.3,0 -320,0 -106.7,0 -213.3,0 -320,0 -106.7,0 -213.3,0 -266.7,0 H 0 Z"
+     fill="#ebe5d7"
+     stroke-linecap="round"
+     stroke-linejoin="miter"
+     id="path1" />
+</svg>

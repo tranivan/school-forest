@@ -83,28 +83,6 @@ all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>
 standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=3.1.5)", "python-multipart (>=0.0.18)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
-name = "fastapi-tailwind"
-version = "2.0.3a1"
-description = "✨ TailwindCSS support for 🔥 FastAPI."
-optional = false
-python-versions = ">=3.8"
-groups = ["main"]
-files = [
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-macosx_10_9_arm64.whl", hash = "sha256:c305e081a59530fcd1dacf528f27d353ac5bac0a5d6f02a63715bb68765ecbd4"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:9a9ffaf012da14365e6677cf558a96fefe6e2fda201709abed7fec76cbd1e48d"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:1a8896cdefc11d9361b2bfbdbbe2efcb64d500035e9a41715ed161e1acfcc254"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:ec6e596d88c3520e4fc818cd85c40911c23bdde2572f615b245dedd16d1914a2"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-manylinux2014_aarch64.whl", hash = "sha256:d2c7323913bacbaabb845ca588e24733a674b72d9567a7f87c2b87284fa064dd"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-manylinux2014_x86_64.whl", hash = "sha256:e0183449409a4acab1a0bb2b24cedf2582a40161ec1490c4c48e3501925dd5e9"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:ae9e94ed9c890bc4fb34ba2f382f342339ce7b05eb42b3858b970cabaddb18f0"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:22fac4f2320997d85c4358af7fa375730e3ec8f7a9ef9b7ea94880248bdcec7b"},
-    {file = "fastapi_tailwind-2.0.3a1-py3-none-win_amd64.whl", hash = "sha256:0df4ffffc962ad4065fc1eee190b579d3e92371403401e37b79966cfd795471b"},
-]
-
-[package.extras]
-dev = ["build", "fastapi[standard]", "pytest", "requests", "ruff", "typer"]
-
-[[package]]
 name = "greenlet"
 version = "3.2.1"
 description = "Lightweight in-process concurrent programming"
@@ -494,6 +472,18 @@ files = [
 
 [package.extras]
 cli = ["click (>=5.0)"]
+
+[[package]]
+name = "python-multipart"
+version = "0.0.20"
+description = "A streaming multipart parser for Python"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "python_multipart-0.0.20-py3-none-any.whl", hash = "sha256:8a62d3a8335e06589fe01f2a3e178cdcc632f3fbe0d492ad9ee0ec35aab1f104"},
+    {file = "python_multipart-0.0.20.tar.gz", hash = "sha256:8dd0cab45b8e23064ae09147625994d090fa46f5b0d1e13af944c331a7fa9d13"},
+]
 
 [[package]]
 name = "pyyaml"
@@ -956,4 +946,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "f9243479f1e3039721b1abda5320289575a5571b977c4bb4ad9f152560d448e6"
+content-hash = "07db89bb32196913e6db30323112f35e3dbf1abe1584754f4fec8f9b3289318a"

@@ -2,16 +2,25 @@
 {% block title %}Galerie - {% endblock %}
 {% block content %}
 
+
+
 <body class="text-forest min-h-screen bg-background-primary">
     <div class="container mx-auto">
         <h1 class="text-6xl md:text-7xl font-black text-center mt-24 hidden sm:block">FOTOGALERIE</h1>
         <h1 class="text-6xl md:text-7xl font-black text-center mt-24 block sm:hidden">FOTO<br>GALERIE</h1>
+        {% set date_holder = [None] %} {# Initialize the list with a default value #}
         <div class="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 px-1 md:px-12 mt-8">
-            {% for _ in range(60) %}
-            <img src="/static/hory.jpg" loading="lazy"
+            {% for photo in photos %}
+            {# <p>Debug: photo.taken_at = "{{ photo.taken_at }}", date = "{{ date_holder[0] }}"</p> #}
+            {% if photo.taken_at != date_holder[0] %}
+            <h3>{{ photo.taken_at }}</h3>
+            {% endif %}
+            <img src="{{ photo.file_path }}" loading="lazy"
                 class="object-center object-cover h-full aspect-square rounded-xs" />
+            {% set _ = date_holder.__setitem__(0, photo.taken_at) %} {# Update the first element of the list #}
             {% endfor %}
         </div>
+    </div>
     </div>
 </body>
 <script>

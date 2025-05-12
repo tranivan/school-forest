@@ -1,0 +1,84 @@
+{% extends "base.jinja2" %}
+{% block title %}Adminpanel - {% endblock %}
+{% block content %}
+
+<body class="text-forest min-h-screen bg-background-primary">
+    <div class="container mx-auto px-16 mt-12">
+        <h1 class="text-3xl font-semibold text-start mt-24">Adminpanel</h1>
+        <form action="/posts" method="POST" enctype="multipart/form-data">
+            <h2 class="text-xl font-medium text-start mt-12">Přidat příspěvek:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Název</label>
+                    <input type="text" id="title" name="title" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Obrázek</label>
+                    <input type="file" id="image" name="image" accept="image/*" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                    <textarea id="content" name="content" rows="4" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                </div>
+                <div>
+                    <label for="genre" class="block text-sm font-medium text-gray-700">Žánr</label>
+                    <input type="text" id="genre" name="genre" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                {# <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700">Kategorie</label>
+                    <select id="category" name="category" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="nature">Příroda</option>
+                        <option value="people">Lidé</option>
+                        <option value="animals">Zvířata</option>
+                        <option value="landscapes">Krajiny</option>
+                    </select>
+                </div> #}
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-700">Datum</label>
+                    <input type="date" id="date" name="date" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="author" class="block text-sm font-medium text-gray-700">Autor článku</label>
+                    <input type="text" id="author" name="author"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <button type="submit"
+                    class="mt-4 px-4 py-2 bg-primary/92 text-white font-medium rounded-md shadow-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
+                    Přidat příspěvek
+                </button>
+
+            </div>
+        </form>
+        <form action="/add-photos" method="POST" enctype="multipart/form-data" class="mt-20">
+            <h2 class="text-xl font-medium text-start">Přidat fotku:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <label for="images" class="block text-sm font-medium text-gray-700">Fotka</label>
+                    <input type="file" id="images" name="images" accept="image/*" multiple required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="taken_at" class="block text-sm font-medium text-gray-700">Datum</label>
+                    <input type="date" id="taken_at" name="taken_at" required
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <button type="submit"
+                    class="mt-4 px-4 py-2 bg-primary/92 text-white font-medium rounded-md shadow-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 cursor-pointer">
+                    Přidat fotku
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById('navbar').classList.replace("text-background-primary", "text-forest");
+</script>
+
+</html>
+{%endblock%}

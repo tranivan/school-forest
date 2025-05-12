@@ -4,7 +4,9 @@
 
 <body class="text-background-primary min-h-screen bg-forest">
   <div
-    class="items-center bg-cover bg-center bg-[url(/static/homepicture.webp)] h-screen grid grid-rows-[auto_1fr_auto]">
+    class="items-center bg-cover bg-center bg-[url(/static/homepicture.webp)] h-screen grid grid-rows-[auto_1fr_auto] -z-10">
+    {# <img src="/static/wave-haikei.svg"
+      class="absolute bottom-0 left-0 w-full h-full object-cover -z-10 object-top" /> #}
     <div class="h-12"></div>
     <div class="flex flex-col max-w-md mx-8 sm:mx-24">
       <h1 class="text-5xl font-black p-8">Školní les PORGu Libeň</h1>
@@ -13,29 +15,35 @@
         více o projektu
       </button>
     </div>
-    <button id="scrollButton"
-      class="bg-background-primary justify-self-end w-fit mx-12 justify-center items-center rounded-t-sm cursor-pointer scroll-mt-16">
-      <h3 class="font-black text-forest text-xl px-6 py-1">
-        NOVINKY
-      </h3>
-    </button>
-    <script>
-      document.getElementById("scrollButton").addEventListener("click", function () {
-        document.getElementById("scrollButton").scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    </script>
+    <div class="relative h-32 w-full">
+      <img src="/static/wave-haikei.webp" class="absolute sm:-bottom-4 left-0 w-full h-full object-fill" />
+      <div class="absolute inset-0 flex items-end justify-end"></div>
+      <button id="scrollButton"
+        class="absolute top-20 right-6 flex gap-2 rounded-t-sm cursor-pointer scroll-mt-16 z-10">
+        <img src="/static/down-arrow.svg" class="h-8" />
+        <h3 class="font-extrabold text-forest text-xl">
+          NOVINKY
+        </h3>
+      </button>
+    </div>
   </div>
-  <div class="bg-background-primary pt-16 sm:pt-24 pb-32 flex flex-col">
+  </div>
+  <script>
+    document.getElementById("scrollButton").addEventListener("click", function () {
+      document.getElementById("scrollButton").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  </script>
+  <div class="bg-background-primary sm:pt-8 pb-32 flex flex-col">
     <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-24">
       <button onclick="window.location='/post'"
         class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
-        <img src="/static/hory.jpg" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
-        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">{{ latest_post_title }}</h3>
+        <img src="{{ latest_post.image }}" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
+        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">{{ latest_post.title }}</h3>
         <div class="flex justify-between">
           <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-            <p class="radiolabel text-xs">{{ latest_post_genre }}</p>
+            <p class="radiolabel text-xs">{{ latest_post.genre }}</p>
             <div class="flex gap-2">
               <p class="checkboxlabel text-xs">SEXTA</p>
               <p class="checkboxlabel text-xs">SEPIMA</p>

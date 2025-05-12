@@ -12,10 +12,12 @@ class BlogPost(Base):
     title = Column(String, nullable=False)
     content = Column(Text, nullable=False)
     author = Column(String)
-    created_at = Column(String)
-    genres = Column(String, nullable=False)
-    
-    classes = relationship("AttendingClasses", back_populates="post")   
+    date = Column(String)
+    genre = Column(String, nullable=False)
+    cover_image = Column(Integer)
+
+    classes = relationship("AttendingClasses", back_populates="post")
+    photos = relationship("Photo", back_populates="post")   
 
 class AttendingClasses(Base):
     __tablename__ = 'attending_classes'
@@ -23,6 +25,15 @@ class AttendingClasses(Base):
     class_id = Column(SmallInteger, primary_key=True)
 
     post = relationship("BlogPost", back_populates="classes")
+
+class Photo(Base):
+    __tablename__ = 'photos'
+    id = Column(Integer, primary_key=True)
+    post_id = Column(Integer, ForeignKey('blog_posts.id', ondelete='CASCADE'), nullable=True)
+    file_path = Column(String, nullable=False)
+    taken_at = Column(String, nullable=True) #probably make nullable false once i have a date picker
+
+    post = relationship("BlogPost", back_populates="photos")
 
 Base.metadata.create_all(engine)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)

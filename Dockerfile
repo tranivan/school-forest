@@ -2,13 +2,16 @@ FROM python:3.13-alpine
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock ./
-
 ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
+COPY pyproject.toml poetry.lock ./
 RUN pip install poetry==2.1.2 && poetry install --no-root
+
+# Install node_modules lightGallery
+COPY package.json package-lock.json ./
+RUN apk add --no-cache nodejs npm && npm ci
 
 COPY . /app
 

@@ -5,3 +5,4 @@ app/__pycache__/
 compose.yml
 Dockerfile
 .dockerignore
+node_modules/

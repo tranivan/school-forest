@@ -1,11 +1,17 @@
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');@import "tailwindcss";
+
+@layer base {
+    html {
+        font-family: 'Inter', sans-serif;
+    }
+}
 
  @theme {
      --color-primary: #3E7B27;
      --color-secondary: #EFE3C2;
      --color-grass: #85A947;
      --color-forest: #123524;
+     --color-terciary: #2a7f1b;
      --color-background-primary: #EBE5D7;
      --color-background-hover: #dbd1b8;
 
@@ -17,15 +23,18 @@
      }
 
      .radio {
-         @apply bg-forest text-background-primary text-xs font-black rounded-lg px-3 py-0 focus:bg-primary;
+         @apply bg-transparent text-forest text-xs font-black rounded-xl px-3 py-2 focus:bg-forest focus:text-background-primary transition-all duration-200 ease-in-out cursor-pointer hover:underline underline-offset-3 decoration-1;
      }
 
      .radiolabel {
-         @apply bg-background-primary text-forest text-[0.6rem] font-extrabold border border-forest rounded-lg h-fit px-1;
+         @apply bg-background-primary text-[#0e5c00] text-xs font-semibold rounded-lg h-fit;
      }
 
      .checkboxlabel {
          @apply bg-background-primary text-forest text-[0.6rem] font-extrabold border border-forest rounded-sm h-fit px-1;
+     }
+     .dropdowntext {
+        @apply text-forest text-sm font-semibold;
      }
 
      @layer utilities {

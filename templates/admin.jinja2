@@ -48,11 +48,31 @@
                     <input type="text" id="author" name="author"
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
+
+                <div class="col-span-1 md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Možnosti</label>
+                    <div class="flex flex-col space-y-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="options" value="featured"
+                                class="form-checkbox text-primary focus:ring-blue-500">
+                            <span class="ml-2">Zvýraznit příspěvek</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="options" value="allow_comments"
+                                class="form-checkbox text-primary focus:ring-blue-500">
+                            <span class="ml-2">Povolit komentáře</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="options" value="send_notification"
+                                class="form-checkbox text-primary focus:ring-blue-500">
+                            <span class="ml-2">Odeslat upozornění</span>
+                        </label>
+                    </div>
+                </div>
                 <button type="submit"
                     class="mt-4 px-4 py-2 bg-primary/92 text-white font-medium rounded-md shadow-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
                     Přidat příspěvek
                 </button>
-
             </div>
         </form>
         <form action="/add-photos" method="POST" enctype="multipart/form-data" class="mt-20">

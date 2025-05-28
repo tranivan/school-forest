@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="#3e7b27"
+   stroke-width="2.4"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   class="feather feather-arrow-up-right"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="SVGRepo_iconCarrier"
+     style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1">
+    <line
+       x1="7"
+       y1="17"
+       x2="17"
+       y2="7"
+       id="line1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <polyline
+       points="7 7 17 7 17 17"
+       id="polyline1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  </g>
+</svg>

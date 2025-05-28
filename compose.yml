@@ -1,0 +1,12 @@
+services:
+  fastapi:
+    build: "."
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./posts.db:/app/posts.db
+      - uploaded_photos:/app/static/uploads
+  
+volumes:
+  uploaded_photos:
+    

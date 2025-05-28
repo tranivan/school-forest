@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from app.database import SessionLocal, BlogPost, Photo
+from app.database import SessionLocal, BlogPost, Photo, AttendingClasses
 import os
 import uuid
 
@@ -19,6 +19,7 @@ def get_db():
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/js", StaticFiles(directory="js"), name="js")
+app.mount("/lg-assets", StaticFiles(directory="node_modules/lightgallery"), name="lgassets")
 
 
 templates = Jinja2Templates(directory="templates")
@@ -96,6 +97,7 @@ def create_post(
     genre: str = Form(...),
     date: str = Form(...),
     image: UploadFile = File(None), 
+    class_ids: list[int] = None, 
 
     db: Session = Depends(get_db),
 ):
@@ -130,6 +132,17 @@ def create_post(
         cover_image = cover_image_id
     )   
     db.add(new_post)
+    db.flush()
+
+    # Handle attending classes if provided
+    if class_ids:
+        for class_id in class_ids:
+            attending_class = AttendingClasses(
+                post_id=new_post.id,
+                class_id=class_id
+            )
+            db.add(attending_class)
+
     db.commit()
     db.refresh(new_post)
 
@@ -158,6 +171,7 @@ def add_photos(
         file_extension = os.path.splitext(image.filename)[1]
         unique_filename = f"{uuid.uuid4()}{file_extension}"
         file_path = os.path.join(upload_dir, unique_filename)
+        relative_path = os.path.relpath(file_path, "static")
 
         # Save the file
         with open(file_path, "wb") as f:
@@ -165,7 +179,7 @@ def add_photos(
 
         # Create a new Photo entry
         new_photo = Photo(
-            file_path=file_path,
+            file_path=relative_path,
             taken_at=taken_at,  # Optional: Add a timestamp if needed
         )
         db.add(new_photo)

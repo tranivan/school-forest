@@ -11,8 +11,14 @@
     <div class="flex flex-col max-w-md mx-8 sm:mx-24">
       <h1 class="text-5xl font-black p-8">Školní les PORGu Libeň</h1>
       <button onclick="window.location='/o-nas'"
-        class="cursor-pointer underline decoration-double focus:outline-offset-2 focus:outline-2 focus:outline-background-hover transition-all place-self-end h-fit w-fit text-2xl font-extrabold">
-        více o projektu
+        class="cursor-pointer group transition-all duration-240 ease-in-out place-self-end h-fit w-fit text-2xl font-extrabold">
+        <span
+          class="bg-left-bottom bg-gradient-to-r from-secondary to-secondary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+          více o projektu
+        </span>
+
+        <img src="/static/tree-icon.svg"
+          class="inline h-8 ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
       </button>
     </div>
     <div class="relative h-32 w-full">
@@ -36,8 +42,8 @@
     });
   </script>
   <div class="bg-background-primary sm:pt-8 pb-32 flex flex-col">
-    <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-24">
-      <button onclick="window.location='/post'"
+    <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-20">
+      {# <button onclick="window.location='/post'"
         class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="{{ latest_post.image }}" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
         <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">{{ latest_post.title }}</h3>
@@ -51,9 +57,9 @@
           </div>
           <img src="/static/arrowupright.svg" class="mx-auto h-8" />
         </div>
-      </button>
+      </button> #}
 
-      <div class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
+      {# <div class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
         <img src="/static/sazeni.jpg" class="object-cover object-center w-full h-5/7 rounded-md mb-4" />
         <h3 class="text-background-primary text-3xl font-semibold mb-4">{{ second_latest_post_title}}</h3>
         <div class="flex justify-between">
@@ -66,6 +72,45 @@
           </div>
           <img src="/static/arrowupright.svg" class="mx-auto h-8" />
         </div>
+      </div> #}
+      <button onclick="window.location='/post'"
+        class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
+        <img src="{{ latest_post.image }}" class="object-cover object-center h-5/7 w-full mb-3" />
+        <div class="flex flex-col justify-between relative">
+          <h3 class="text-forest text-start text-2xl xl:text-3xl font-semibold mb-3">{{ latest_post.title }}</h3>
+          <div class="w-4/5 h-fit">
+            <hr
+              class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+            <div class="flex justify-between items-end h-8 pb-1">
+              <p class="radiolabel">{{ latest_post.genre }}</p>
+              <div class="flex gap-2">
+                <p class="radiolabel ">SEXTA</p>
+                <p class="radiolabel">SEPIMA</p>
+              </div>
+            </div>
+          </div>
+          <img src="/static/arrowuprightblack.svg"
+            class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
+        </div>
+      </button>
+      <div class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
+        <img src="{{ second_latest_post.image }}" class="object-cover object-center h-5/7 w-full mb-3" />
+        <div class="flex flex-col justify-between relative">
+          <h3 class="text-forest text-2xl xl:text-3xl font-semibold mb-3">{{ second_latest_post.title }}</h3>
+          <div class="w-4/5 h-fit">
+            <hr
+              class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+            <div class="flex justify-between items-end h-8 pb-1">
+              <p class="radiolabel">{{ second_latest_post.genre }}</p>
+              <div class="flex gap-2">
+                <p class="radiolabel ">SEXTA</p>
+                <p class="radiolabel">SEPIMA</p>
+              </div>
+            </div>
+          </div>
+          <img src="/static/arrowuprightblack.svg"
+            class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
+        </div>
       </div>
     </div>
 
@@ -75,7 +120,9 @@
         <h2 class="text-forest font-black text-2xl">
           NEJNOVĚJŠÍ FOTKY
         </h2>
-        <div class="custom-radial-gradient h-48 mt-8 rounded-md border-2 border-forest p-4 relative">
+        <div class="
+        {# custom-radial-gradient  #}
+        h-48 mt-8 rounded-md border-2 border-forest p-4 relative">
           <div id="photoContainer"
             class="[mask-image:linear-gradient(to_left,transparent_0,black_100px)] flex space-x-4 h-full overflow-x-auto snap-x sm:px-8">
             {% for _ in range(12) %}

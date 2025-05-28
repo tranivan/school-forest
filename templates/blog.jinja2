@@ -5,96 +5,207 @@
 
 <body class="text-forest min-h-screen bg-background-primary flex flex-col mt-12">
     <main class="container mx-auto px-8">
-        <div class="grid grid-cols-[auto_1fr] mt-2">
-            <h1 class="font-black text-7xl">BLOG</h1>
-            <div class="justify-self-center content-end">
+        <h1 class="font-black text-7xl mt-2">BLOG</h1>
+        <div class="flex flex-col md:flex-row space-x-16 space-y-4 md:space-y-0 mt-8">
+            <div class="max-w-lg">
                 <h3 class="font-extrabold text-xs mb-2 text-primary">FILTROVAT PODLE:</h3>
-                <div class="flex gap-4">
+                <div class="flex gap-4 overflow-x-auto">
                     <button class="radio">VŠECHNO</button>
                     <button class="radio">REPOROTÁŽ</button>
                     <button class="radio">LÍČENÍ</button>
                     <button class="radio">NAUČNÉ</button>
                 </div>
             </div>
+
+            <div class="relative w-72 content-end">
+                <div class="bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer flex justify-between items-center text-sm p-2"
+                    onclick="toggleDropdown()">
+                    <span id="selected-text" class="text-gray-700">Vybrat třídu</span>
+                    <div class="flex items-center gap-2">
+                        <button id="clear-btn" class="text-gray-400 hover:text-gray-600 text-sm hidden"
+                            onclick="clearSelection(event)">✕</button>
+                        <span class="dropdown-arrow text-gray-400 transition-transform duration-300">▼</span>
+                    </div>
+                </div>
+
+                <div
+                    class="dropdown-content absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-1 max-h-64 overflow-y-auto z-50 text-sm hidden">
+                    <div class="dropdown-options">
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Apple')">Prima</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Banana')">Sekunda</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Cherry')">Tercie</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Date')">Kvarta</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Elderberry')">Kvinta</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Fig')">Sexta</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100"
+                            onclick="selectOption('Grape')">Absolventi 2026</div>
+                        <div class="dropdowntext dropdown-item p-3 hover:bg-gray-50 cursor-pointer"
+                            onclick="selectOption('Honeydew')">
+                            Oktáva</div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+        <script>
+            function toggleDropdown() {
+                const content = document.querySelector('.dropdown-content');
+                const arrow = document.querySelector('.dropdown-arrow');
+
+                content.classList.toggle('hidden');
+                arrow.classList.toggle('rotate-180');
+            }
+
+            function selectOption(value) {
+                document.getElementById('selected-text').textContent = value;
+                document.getElementById('selected-text').classList.remove('text-gray-500');
+                document.getElementById('selected-text').classList.add('text-gray-700');
+
+                // Show clear button
+                document.getElementById('clear-btn').classList.remove('hidden');
+
+                closeDropdown();
+            }
+
+            function clearSelection(event) {
+                event.stopPropagation(); // Prevent dropdown from opening
+
+                document.getElementById('selected-text').textContent = 'Vybrat třídu';
+                document.getElementById('selected-text').classList.remove('text-gray-700');
+                document.getElementById('selected-text').classList.add('text-gray-500');
+
+                // Hide clear button
+                document.getElementById('clear-btn').classList.add('hidden');
+            }
+
+            function closeDropdown() {
+                document.querySelector('.dropdown-content').classList.add('hidden');
+                document.querySelector('.dropdown-arrow').classList.remove('rotate-180');
+            }
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                const container = event.target.closest('.relative');
+                if (!container) {
+                    closeDropdown();
+                }
+            });
+
+            // Initialize with placeholder styling
+            document.getElementById('selected-text').classList.add('text-gray-500');
+        </script>
+
         <div
-            class="grid sm:grid-cols-2 lg:grid-cols-3 auto-rows-[85px] xl:auto-rows-[120px] gap-6 place-items-center mt-2">
-            <div class="sm:col-span-2 sm:row-span-4 row-span-3 size-full homecard flex flex-col p-2">
-                <img src="/static/hory.jpg"
-                    class="object-cover object-center aspect-video w-auto h-full rounded-md mb-4" />
-                <h3 class="text-background-primary text-xl font-semibold mb-4">Jdeme na hory!</h3>
-                <div class="flex justify-between w-4/5">
-                    <p class="radiolabel">ZPRÁVA</p>
-                    <div class="flex gap-2">
-                        <p class="checkboxlabel">SEXTA</p>
-                        <p class="checkboxlabel">SEPIMA</p>
+            class="grid sm:grid-cols-2 lg:grid-cols-3 auto-rows-[95px] xl:auto-rows-[120px] gap-x-6 gap-y-8 place-items-center mt-6">
+            <div class="group sm:col-span-2 sm:row-span-4 row-span-3 size-full cursor-pointer flex flex-col">
+                <img src="/static/hory.jpg" class="object-cover object-center aspect-video w-auto h-full mb-4" />
+                <div class="flex flex-col justify-between relative">
+                    <h3 class="text-2xl xl:text-3xl font-semibold mb-3">Jdeme na hory!</h3>
+                    <div class="w-4/5 h-fit">
+                        <hr
+                            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+                        <div class="flex justify-between items-end h-8 pb-1">
+                            <p class="radiolabel">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="radiolabel ">SEXTA</p>
+                                <p class="radiolabel">SEPIMA</p>
+                            </div>
+                        </div>
                     </div>
+                    <img src="/static/arrowuprightblack.svg"
+                        class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
                 </div>
             </div>
 
-            <div class="homecard row-span-3 lg:row-span-2 h-full w-full flex flex-col p-2">
-                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 lg:h-4/7 w-full rounded-md" />
-                <div class="flex flex-col justify-between h-3/7 p-2">
-                    <h3 class="text-background-primary text-xl font-semibold">Bude oplocenka</h3>
-                    <div class="flex flex-wrap justify-between gap-2 w-4/5">
-                        <p class="radiolabel">ZPRÁVA</p>
-                        <div class="flex gap-2">
-                            <p class="checkboxlabel">SEXTA</p>
-                            <p class="checkboxlabel">Sepima</p>
-                            <p class="checkboxlabel">SEPIMA</p>
+            <div class="group row-span-3 lg:row-span-2 h-full w-full flex flex-col cursor-pointer">
+                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full mb-3" />
+                <div class="flex flex-col justify-between relative">
+                    <h3 class="text- text-2xl xl:text-3xl font-semibold mb-3">Bude oplocenka</h3>
+                    <div class="w-4/5 h-fit">
+                        <hr
+                            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+                        <div class="flex justify-between items-end h-8 pb-1">
+                            <p class="radiolabel">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="radiolabel ">SEXTA</p>
+                                <p class="radiolabel">SEPIMA</p>
+                            </div>
                         </div>
                     </div>
+                    <img src="/static/arrowuprightblack.svg"
+                        class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
                 </div>
             </div>
-            <div class="homecard row-span-3 lg:row-span-2 h-full w-full flex flex-col p-2">
-                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 lg:h-4/7 w-full rounded-md" />
-                <div class="h-3/7 flex flex-col justify-between p-2">
-                    <h3 class="text-background-primary text-xl font-semibold">Bude oplocenka</h3>
-                    <div class="flex flex-wrap justify-between gap-2 w-4/5">
-                        <p class="radiolabel">ZPRÁVA</p>
-                        <div class="flex gap-2">
-                            <p class="checkboxlabel">SEXTA</p>
-                            <p class="checkboxlabel">Sepima</p>
-                            <p class="checkboxlabel">SEPIMA</p>
+            <div class="group row-span-3 lg:row-span-2 h-full w-full flex flex-col cursor-pointer">
+                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full mb-3" />
+                <div class="flex flex-col justify-between relative">
+                    <h3 class="text- text-2xl xl:text-3xl font-semibold mb-3">Bude oplocenka</h3>
+                    <div class="w-4/5 h-fit">
+                        <hr
+                            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+                        <div class="flex justify-between items-end h-8 pb-1">
+                            <p class="radiolabel">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="radiolabel ">SEXTA</p>
+                                <p class="radiolabel">SEPIMA</p>
+                            </div>
                         </div>
                     </div>
+                    <img src="/static/arrowuprightblack.svg"
+                        class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
                 </div>
+            </div>
 
-            </div>
             {% for _ in range(3) %}
-            <div class="homecard row-span-3 h-full w-full flex flex-col p-2">
-                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full rounded-md mb-4" />
-                <h3 class="text-background-primary text-2xl xl:text-3xl font-semibold mb-4">Bude oplocenka</h3>
-                <div class="flex justify-between">
-                    <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-                        <p class="radiolabel">ZPRÁVA</p>
-                        <div class="flex gap-2">
-                            <p class="checkboxlabel ">SEXTA</p>
-                            <p class="checkboxlabel ">SEPIMA</p>
+            <div class="group row-span-3 h-full w-full flex flex-col cursor-pointer">
+                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full mb-3" />
+                <div class="flex flex-col justify-between relative">
+                    <h3 class="text- text-2xl xl:text-3xl font-semibold mb-3">Bude oplocenka</h3>
+                    <div class="w-4/5 h-fit">
+                        <hr
+                            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+                        <div class="flex justify-between items-end h-8 pb-1">
+                            <p class="radiolabel">ZPRÁVA</p>
+                            <div class="flex gap-2">
+                                <p class="radiolabel ">SEXTA</p>
+                                <p class="radiolabel">SEPIMA</p>
+                            </div>
                         </div>
                     </div>
-                    <img src="/static/arrowupright.svg" class="mx-auto h-8" />
+                    <img src="/static/arrowuprightblack.svg"
+                        class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
                 </div>
             </div>
+
             {% endfor %}
-            <div class="row-span-3 h-full w-full flex flex-col">
-                <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full mb-2" />
-                <h3 class="text- text-2xl xl:text-3xl font-semibold mb-4">Bude oplocenka</h3>
-                <div class="flex justify-between">
-                    <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-                        <p class="radiolabel">ZPRÁVA</p>
-                        <div class="flex gap-2">
-                            <p class="checkboxlabel ">SEXTA</p>
-                            <p class="checkboxlabel ">SEPIMA</p>
-                        </div>
-                    </div>
-                    <img src="/static/arrowupright.svg" class="mx-auto h-8" />
-                </div>
-            </div>
         </div>
     </main>
 
-    <script></script>
 </body>
 
 {%endblock%}
+{# green fill design #}
+
+{# {% for _ in range(3) %}
+<div class="homecard row-span-3 h-full w-full flex flex-col p-2">
+    <img src="/static/hory.jpg" class="object-cover object-center h-5/7 w-full rounded-md mb-4" />
+    <h3 class="text-background-primary text-2xl xl:text-3xl font-semibold mb-4">Bude oplocenka</h3>
+    <div class="flex justify-between">
+        <div class="flex justify-between items-end h-8 pb-1 w-4/5">
+            <p class="radiolabel">ZPRÁVA</p>
+            <div class="flex gap-2">
+                <p class="checkboxlabel ">SEXTA</p>
+                <p class="checkboxlabel ">SEPIMA</p>
+            </div>
+        </div>
+        <img src="/static/arrowupright.svg" class="mx-auto h-8" />
+    </div>
+</div>
+{% endfor %} #}

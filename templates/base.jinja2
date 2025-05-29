@@ -9,9 +9,15 @@
     <script defer src="/js/main.js"></script>
 </head>
 
-<body>
+<body class="text-forest min-h-screen flex flex-col bg-forest overscroll-none">
     {% include "navbar.jinja2" %}
-    <main>{% block content %}{% endblock %}</main>
+    <main class="flex-1 bg-background-primary pb-16">{% block content %}{% endblock %}</main>
+    <footer class="relative bg-forest text-background-primary/85 text-center pt-4 pb-4">
+        <p class="text-sm">© 2025 Školní les PORG Libeň. Všechna práva vyhrazena.</p>
+        <p class="text-xs">Web vytvořil
+            <a href="http://www.kicnavi.com">Ivan Tran</a>
+        </p>
+    </footer>
 </body>
 
 </html>

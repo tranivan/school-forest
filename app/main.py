@@ -114,8 +114,12 @@ def create_post(
         with open(file_path, "wb") as f:
             f.write(image.file.read())
 
+        # Store only the relative path (without 'static/')
+        relative_path = os.path.relpath(file_path, "static")
+
+
         # Create a new Photo entry
-        new_photo = Photo(file_path=file_path)
+        new_photo = Photo(file_path=relative_path)
         db.add(new_photo)
         db.commit()
         db.refresh(new_photo)

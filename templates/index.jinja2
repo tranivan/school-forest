@@ -2,11 +2,9 @@
 {% block content %}
 
 
-<body class="text-background-primary min-h-screen bg-forest">
+<div class="text-background-primary">
   <div
-    class="items-center bg-cover bg-center bg-[url(/static/homepicture.webp)] h-screen grid grid-rows-[auto_1fr_auto] -z-10">
-    {# <img src="/static/wave-haikei.svg"
-      class="absolute bottom-0 left-0 w-full h-full object-cover -z-10 object-top" /> #}
+    class="items-center bg-cover bg-center bg-[url(/static/homepicture.webp)] h-[700px] sm:h-screen grid grid-rows-[auto_1fr_auto] -z-10">
     <div class="h-12"></div>
     <div class="flex flex-col max-w-md mx-8 sm:mx-24">
       <h1 class="text-5xl font-black p-8">Školní les PORGu Libeň</h1>
@@ -22,7 +20,9 @@
       </button>
     </div>
     <div class="relative h-32 w-full">
-      <img src="/static/wave-haikei.webp" class="absolute sm:-bottom-4 left-0 w-full h-full object-fill" />
+      <img src="/static/wave-haikei.webp"
+        class="absolute sm:-bottom-4 left-0 w-full h-full object-fill select-none pointer-events-none"
+        draggable="false" />
       <div class="absolute inset-0 flex items-end justify-end"></div>
       <button id="scrollButton"
         class="absolute top-20 right-6 flex gap-2 rounded-t-sm cursor-pointer scroll-mt-16 z-10">
@@ -33,134 +33,116 @@
       </button>
     </div>
   </div>
-  </div>
-  <script>
-    document.getElementById("scrollButton").addEventListener("click", function () {
-      document.getElementById("scrollButton").scrollIntoView({
-        behavior: "smooth"
-      });
+</div>
+<script>
+  document.getElementById("scrollButton").addEventListener("click", function () {
+    document.getElementById("scrollButton").scrollIntoView({
+      behavior: "smooth"
     });
-  </script>
-  <div class="bg-background-primary sm:pt-8 pb-32 flex flex-col">
-    <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-20">
-      {# <button onclick="window.location='/post'"
-        class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
-        <img src="{{ latest_post.image }}" class="object-cover object-center w-full h-5/7 mb-4 rounded-t-sm" />
-        <h3 class="text-background-primary text-3xl text-left font-semibold mb-4">{{ latest_post.title }}</h3>
-        <div class="flex justify-between">
-          <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-            <p class="radiolabel text-xs">{{ latest_post.genre }}</p>
-            <div class="flex gap-2">
-              <p class="checkboxlabel text-xs">SEXTA</p>
-              <p class="checkboxlabel text-xs">SEPIMA</p>
-            </div>
-          </div>
-          <img src="/static/arrowupright.svg" class="mx-auto h-8" />
-        </div>
-      </button> #}
-
-      {# <div class="homecard sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col p-2">
-        <img src="/static/sazeni.jpg" class="object-cover object-center w-full h-5/7 rounded-md mb-4" />
-        <h3 class="text-background-primary text-3xl font-semibold mb-4">{{ second_latest_post_title}}</h3>
-        <div class="flex justify-between">
-          <div class="flex justify-between items-end h-8 pb-1 w-4/5">
-            <p class="radiolabel text-xs">{{ second_latest_post_genre }}</p>
-            <div class="flex gap-2">
-              <p class="checkboxlabel text-xs">SEXTA</p>
-              <p class="checkboxlabel text-xs">SEPIMA</p>
-            </div>
-          </div>
-          <img src="/static/arrowupright.svg" class="mx-auto h-8" />
-        </div>
-      </div> #}
-      <button onclick="window.location='/post'"
-        class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
-        <img src="{{ latest_post.image }}" class="object-cover object-center h-5/7 w-full mb-3" />
-        <div class="flex flex-col justify-between relative">
-          <h3 class="text-forest text-start text-2xl xl:text-3xl font-semibold mb-3">{{ latest_post.title }}</h3>
-          <div class="w-4/5 h-fit">
-            <hr
-              class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
-            <div class="flex justify-between items-end h-8 pb-1">
-              <p class="radiolabel">{{ latest_post.genre }}</p>
-              <div class="flex gap-2">
-                <p class="radiolabel ">SEXTA</p>
-                <p class="radiolabel">SEPIMA</p>
-              </div>
-            </div>
-          </div>
-          <img src="/static/arrowuprightblack.svg"
-            class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
-        </div>
-      </button>
-      <div class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
-        <img src="{{ second_latest_post.image }}" class="object-cover object-center h-5/7 w-full mb-3" />
-        <div class="flex flex-col justify-between relative">
-          <h3 class="text-forest text-2xl xl:text-3xl font-semibold mb-3">{{ second_latest_post.title }}</h3>
-          <div class="w-4/5 h-fit">
-            <hr
-              class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
-            <div class="flex justify-between items-end h-8 pb-1">
-              <p class="radiolabel">{{ second_latest_post.genre }}</p>
-              <div class="flex gap-2">
-                <p class="radiolabel ">SEXTA</p>
-                <p class="radiolabel">SEPIMA</p>
-              </div>
-            </div>
-          </div>
-          <img src="/static/arrowuprightblack.svg"
-            class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
-        </div>
+  });
+</script>
+<div class="bg-background-primary sm:pt-8 pb-24 flex flex-col">
+  <div class="flex justify-center flex-wrap md:flex-nowrap px-4 sm:px-8 mb-12 sm:mb-20">
+    <button onclick="window.location='/post'"
+      class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
+      <div class="h-5/7 w-full mb-3 overflow-hidden">
+        <img src="{{ url_for('static', path=latest_post.image) }}"
+          class="object-cover object-center group-hover:scale-[1.03] transition-all duration-400 ease-in-out" />
       </div>
-    </div>
+      <div class="flex flex-col justify-between relative">
+        <h3 class="text-forest text-start text-2xl xl:text-3xl font-semibold mb-3">{{ latest_post.title }}</h3>
+        <div class="w-4/5 h-fit">
+          <hr
+            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+          <div class="flex justify-between items-end h-8 pb-1">
+            <p class="radiolabel">{{ latest_post.genre }}</p>
+            <div class="flex gap-2">
+              <p class="radiolabel ">SEXTA</p>
+              <p class="radiolabel">SEPTIMA</p>
+            </div>
+          </div>
+        </div>
+        <img src="/static/arrowuprightblack.svg"
+          class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
+      </div>
+    </button>
+    <button class="group sm:mx-8 md:max-lg:mx-4 my-8 col-start-2 h-96 w-full max-w-md flex flex-col cursor-pointer">
+      <div class="h-5/7 w-full mb-3 overflow-hidden flex">
+        <img src="{{ url_for('static', path=second_latest_post.image) }}"
+          class="object-cover object-center w-full group-hover:scale-[1.03] transition-all duration-400 ease-in-out" />
+      </div>
+      <div class="flex flex-col justify-between relative">
+        <h3 class="text-forest text-2xl xl:text-3xl text-start font-semibold mb-3">{{ second_latest_post.title }}</h3>
+        <div class="w-4/5 h-fit">
+          <hr
+            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-800 to-transparent opacity-25 dark:via-neutral-700" />
+          <div class="flex justify-between items-end h-8 pb-1">
+            <p class="radiolabel">{{ second_latest_post.genre }}</p>
+            <div class="flex gap-2">
+              <p class="radiolabel ">TERCIE</p>
+              <p class="radiolabel">SEPIMA</p>
+            </div>
+          </div>
+        </div>
+        <img src="/static/arrowuprightblack.svg"
+          class="mx-auto absolute bottom-2 right-2 h-8 transform opacity-75 origin-bottom-left ease-in-out group-hover:scale-105 transition-all duration-200 delay-50" />
+      </div>
+    </button>
+  </div>
 
 
-    <div class="flex justify-center">
-      <div class="max-w-5xl flex flex-col w-full px-4 sm:px-16">
-        <h2 class="text-forest font-black text-2xl">
-          NEJNOVĚJŠÍ FOTKY
-        </h2>
-        <div class="
+  <div class="flex justify-center">
+    <div class="max-w-5xl flex flex-col w-full px-4 sm:px-16">
+      <h2 class="text-forest font-black text-2xl">
+        NEJNOVĚJŠÍ FOTKY
+      </h2>
+      <div class="
         {# custom-radial-gradient  #}
-        h-48 mt-8 rounded-md border-2 border-forest p-4 relative">
-          <div id="photoContainer"
-            class="[mask-image:linear-gradient(to_left,transparent_0,black_100px)] flex space-x-4 h-full overflow-x-auto snap-x sm:px-8">
-            {% for _ in range(12) %}
-            <img src="/static/hory.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
-            {% endfor %}
-            <button onclick="window.location='/galerie'"
-              class="font-extrabold text-lg text-left mr-8 ml-2 cursor-pointer">
-              Všechny fotky
-            </button>
-          </div>
-          <button onclick="scrollRight()"
-            class="cursor-pointer right-2 top-1/2 -translate-y-1/2 absolute hidden sm:block">
-            <img src="/static/arrow-right.svg" class="h-6" />
-          </button>
-          <button onclick="scrollPhotoLeft()"
-            class="cursor-pointer left-3 top-1/2 -translate-y-1/2 absolute hidden sm:block">
-            <img src="/static/arrow-left.svg" class="h-6" />
+        h-48 mt-8 rounded-md bg-white/20 border border-background-hover shadow-lg p-4 relative">
+        <div id="photoContainer"
+          class="[mask-image:linear-gradient(to_left,transparent_0,black_100px)] flex space-x-4 h-full overflow-x-auto snap-x ">
+          <img src="/static/sazeni.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/tunka.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/homepicture.webp" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/P1230860-1.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/P1240159-1.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/P1240145-1.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          <img src="/static/P1240071-1.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+
+          {% for _ in range(4) %}
+          <img src="/static/krajinalesu.jpg" class="snap-start object-cover h-full aspect-square rounded-md" />
+          {% endfor %}
+          <button onclick="window.location='/galerie'"
+            class="font-extrabold text-lg text-left mr-8 ml-2 cursor-pointer">
+            Všechny fotky
           </button>
         </div>
-        <script>
-          const container = document.getElementById('photoContainer');
-          const scrollAmount = 300; // Adjust depending on image size
-
-          function scrollPhotoLeft() {
-            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-          }
-
-          function scrollRight() {
-            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-          }
-        </script>
+        <button onclick="scrollRight()"
+          class="cursor-pointer -right-8 top-1/2 -translate-y-1/2 absolute hidden sm:block">
+          <img src="/static/arrow-right.png" class="h-6" />
+        </button>
+        <button onclick="scrollPhotoLeft()"
+          class="cursor-pointer -left-8 top-1/2 -translate-y-1/2 absolute hidden sm:block">
+          <img src="/static/arrow-left.png" class="h-6" />
+        </button>
       </div>
+      <script>
+        const container = document.getElementById('photoContainer');
+        const scrollAmount = 300; // Adjust depending on image size
+
+        function scrollPhotoLeft() {
+          container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+
+        function scrollRight() {
+          container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      </script>
     </div>
   </div>
-  <footer class="bg-forest h-64">
+</div>
 
-  </footer>
-</body>
+</div>
 <script defer>
   const homenavbar = document.getElementById('navbar');
   homenavbar.classList.replace("text-forest", "text-[#EBE5D7]");

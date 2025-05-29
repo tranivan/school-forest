@@ -8,37 +8,37 @@
         href="{{ url_for('static', path='lightgallery/css/lightgallery-bundle.css') }}" />
 </head>
 
-<body class="text-forest min-h-screen bg-background-primary">
-    <div class="container mx-auto px-2 md:px-12">
-        <h1 class="text-6xl md:text-7xl font-black text-center mt-24 mb-16 hidden sm:block">FOTOGALERIE</h1>
-        <h1 class="text-6xl md:text-7xl font-black text-center mt-24 mb-12 block sm:hidden">FOTO<br>GALERIE</h1>
-        {% set date_holder = [None] %} {# Initialize the list with a default value #}
-        <div class="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 mb-8">
-            {% for photo in photos %}
-            {# <p>Debug: photo.taken_at = "{{ photo.taken_at }}", date = "{{ date_holder[0] }}"</p> #}
-            {% if photo.taken_at != date_holder[0] %}
-            {% if not loop.first %}</div>{% endif %}
-        <h3 class="text-lg text-gray-500 font-inter font-normal">{{ photo.taken_at }}</h3>
-        <div class="gallery-group grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 mb-8">
-            {% set _ = date_holder.__setitem__(0, photo.taken_at) %}
-            {% endif %}
-            <a href="{{ url_for('static', path=photo.file_path) }}" class="group aspect-square" data-lg-size="1600-1600"
-                data-lg-src="{{ url_for('static', path=photo.file_path) }}"
-                data-lg-thumbnail="{{ url_for('static', path=photo.file_path) }}"
-                data-lg-iframe="{{ url_for('static', path=photo.file_path) }}">
-                <img src="{{ url_for('static', path=photo.file_path) }}" loading="lazy"
-                    class="object-center object-cover h-full aspect-square rounded-xs group-hover:opacity-80 transition-opacity duration-300" />
-            </a>
-            {% if loop.last %}
-        </div>{% endif %}
-        {% set _ = date_holder.__setitem__(0, photo.taken_at) %} {# Update the first element of the list #}
-        {% endfor %}
+<div class="container mx-auto px-2 md:px-12">
+    <h1 class="text-6xl md:text-7xl font-black text-center mt-24 mb-16 hidden sm:block">FOTOGALERIE</h1>
+    <h1 class="text-6xl md:text-7xl font-black text-center mt-24 mb-12 block sm:hidden">FOTO<br>GALERIE</h1>
+    {% set date_holder = [None] %} {# Initialize the list with a default value #}
+    <div class="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 mb-8">
+        {% for photo in photos %}
+        {# <p>Debug: photo.taken_at = "{{ photo.taken_at }}", date = "{{ date_holder[0] }}"</p> #}
+        {% if photo.taken_at != date_holder[0] %}
+        {% if not loop.first %}
+        {% endif %}
     </div>
-    </div>
-    </div>
-    </div>
+    <h3 class="text-lg text-gray-500 font-inter font-normal">{{ photo.taken_at }}</h3>
+    <div class="gallery-group grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 md:gap-4 mb-8">
+        {% set _ = date_holder.__setitem__(0, photo.taken_at) %}
+        {% endif %}
+        <a href="{{ url_for('static', path=photo.file_path) }}" class="group aspect-square" data-lg-size="1600-1600"
+            data-lg-src="{{ url_for('static', path=photo.file_path) }}"
+            data-lg-thumbnail="{{ url_for('static', path=photo.file_path) }}"
+            data-lg-iframe="{{ url_for('static', path=photo.file_path) }}">
+            <img src="{{ url_for('static', path=photo.file_path) }}" loading="lazy"
+                class="object-center object-cover h-full aspect-square rounded-xs group-hover:opacity-80 transition-opacity duration-300" />
+        </a>
+        {% if loop.last %}
+    </div>{% endif %}
+    {% set _ = date_holder.__setitem__(0, photo.taken_at) %} {# Update the first element of the list #}
+    {% endfor %}
+</div>
+</div>
+</div>
+</div>
 
-</body>
 <script>
     document.getElementById('navbar').classList.replace("text-background-primary", "text-forest");
 </script>

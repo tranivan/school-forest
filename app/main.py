@@ -6,6 +6,8 @@ from sqlalchemy.orm import Session
 from app.database import SessionLocal, BlogPost, Photo, AttendingClasses
 import os
 import uuid
+import unicodedata
+import re
 
 app = FastAPI()
 
@@ -23,6 +25,15 @@ app.mount("/lg-assets", StaticFiles(directory="node_modules/lightgallery"), name
 
 
 templates = Jinja2Templates(directory="templates")
+
+
+def slugify(value: str) -> str:
+    # Normalize unicode characters (e.g., č -> c)
+    value = unicodedata.normalize('NFKD', value)
+    value = value.encode('ascii', 'ignore').decode('ascii')
+    # Lowercase and replace non-word characters/spaces with dashes
+    value = re.sub(r'[^\w\s-]', '', value).strip().lower()
+    return re.sub(r'[\s]+', '-', value)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -77,7 +88,7 @@ async def read_root(request: Request):
 async def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="admin.jinja2")
 
-@app.get("/post", response_class=HTMLResponse)
+@app.get("/post/{post_id}", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="post.jinja2")
 
@@ -88,6 +99,8 @@ def read_posts(db: Session = Depends(get_db)):
     posts = db.query(BlogPost).all()
     return posts
 
+
+ #TODO udelej aby to tam nemohly byt duplikatni nazvy
 # Route to create a new post
 @app.post("/posts")
 def create_post(
@@ -127,8 +140,10 @@ def create_post(
         # Get the ID of the new photo
         cover_image_id = new_photo.id
 
+
     new_post = BlogPost(
         title=title,
+        slug=slugify(title),  # Generate a slug from the title
         content=content,
         author=author,
         genre=genre,

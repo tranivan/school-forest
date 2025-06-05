@@ -10,6 +10,7 @@ class BlogPost(Base):
     __tablename__ = 'blog_posts'
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
+    slug = Column(String, unique=True, index=True)
     content = Column(Text, nullable=False)
     author = Column(String)
     date = Column(String)
